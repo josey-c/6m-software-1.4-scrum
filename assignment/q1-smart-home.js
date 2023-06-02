@@ -9,11 +9,11 @@
 // Task: Add code here
 
 class BaseSignal {
-    constructor() {
+    constructor(type) {
         if (this.constructor.name == 'BaseSignal') {
             throw new Error("This class cannot be instantiated");
         }
-        this.type = 'base';
+        this.type = type;
     }
     
     send() {
@@ -24,22 +24,19 @@ class BaseSignal {
 
 class TvSignal extends BaseSignal {
     constructor(){
-        super();
-        this.type = 'tv'
+        super('tv');
     }
 }
 
 class AirconSignal extends BaseSignal {
     constructor(){
-        super();
-        this.type = 'aircon'
+        super('aircon');
     }
 }
 
 class DoorSignal extends BaseSignal {
     constructor(){
-        super();
-        this.type = 'door'
+        super('door');
     }
 }
 
