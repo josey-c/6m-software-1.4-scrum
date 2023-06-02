@@ -67,9 +67,32 @@ class Permission{
                 return false;
             default:
                 return false;
-                
+            
         }
     }
 }
 
 // Add code here
+
+class Document extends Permission {
+
+    #content;
+
+    constructor (role, operation, content) {
+        super(role, operation);
+        this.#content = content; 
+    }
+
+    process() {
+        if (this.check()) {
+            console.log('Allowed');
+        } else {
+            console.log('Blocked');
+        }
+    }
+}
+
+/*
+const d = new Document(Permission.RolesConst.READER, Permission.OperationsConst.DELETE, "Hello content")
+d.process(); // "Allowed"
+*/
